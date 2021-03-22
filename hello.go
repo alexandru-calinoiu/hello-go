@@ -15,8 +15,10 @@ func Hello(name string, language string) string {
 		name = "World"
 	}
 
-	prefix := englishHelloPrefix
+	return fmt.Sprintf("%v%v", greetingPrefix(language), name)
+}
 
+func greetingPrefix(language string) (prefix string) {
 	switch language {
 	case french:
 		prefix = frenchHelloPrefix
@@ -24,9 +26,10 @@ func Hello(name string, language string) string {
 		prefix = spanishHelloPrefix
 	case romanian:
 		prefix = romanianHelloPrefix
+	default:
+		prefix = englishHelloPrefix
 	}
-
-	return fmt.Sprintf("%v%v", prefix, name)
+	return
 }
 
 func main() {
