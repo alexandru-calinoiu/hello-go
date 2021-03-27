@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"hello/di"
+)
 
 const spanish = "Spanish"
 const french = "French"
@@ -34,4 +39,6 @@ func greetingPrefix(language string) (prefix string) {
 
 func main() {
 	fmt.Println(Hello("world", "English"))
+
+	log.Fatal(http.ListenAndServe(":5000", http.HandlerFunc(di.MyGreetHandler)))
 }
