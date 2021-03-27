@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-	"hello/di"
+	"hello/countdown"
+	"os"
 )
 
 const spanish = "Spanish"
@@ -38,7 +37,5 @@ func greetingPrefix(language string) (prefix string) {
 }
 
 func main() {
-	fmt.Println(Hello("world", "English"))
-
-	log.Fatal(http.ListenAndServe(":5000", http.HandlerFunc(di.MyGreetHandler)))
+	countdown.Countdown(os.Stdout, &countdown.DefaultSleeper{})
 }
