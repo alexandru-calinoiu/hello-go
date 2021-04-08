@@ -34,7 +34,6 @@ func walk(x interface{}, fn func(input string)) {
 			walkValue(res)
 		}
 	}
-
 }
 
 func getValue(x interface{}) reflect.Value {
